@@ -1,3 +1,8 @@
+/*
+ * Author: Nitish Devadiga
+ * Description: TopCoder SRM 169 Div 1 250
+ */
+
 public class MineField {
 
   boolean checkBorder(int x, int y) {
@@ -7,8 +12,9 @@ public class MineField {
     return false;
   }
   
-  public void getMineField(String mineLocations) {
+  public String[] getMineField(String mineLocations) {
     int[][] mineField = new int[9][9];
+    String[] outputField = new String[9];
 
 
     for(int i = 1; i < mineLocations.length(); ) {
@@ -41,18 +47,24 @@ public class MineField {
       i = i + 5;
     }
 
-    // FOr testing purposes only
-    /*for(int i = 0; i < 9; i++) {
+
+    StringBuilder mines = new StringBuilder();
+    String mine;
+    for(int i = 0; i < 9; i++) {
       for(int j = 0; j < 9; j++) {
-        System.out.print(mineField[i][j]+" ");
+        mine = mineField[i][j] == -1? "M" : Integer.toString(mineField[i][j]);
+        mines.append(mine);
       }
-      System.out.println("");
-    }*/
+      outputField[i] = mines.toString();
+      //System.out.println(outputField[i]);
+      mines.setLength(0);
+    }
+    return outputField;
   }
 
-  public static void main(String[] args) {
-    //String s = "(0,0)(1,0)(2,0)(3,0)(4,0)";
+  /*public static void main(String[] args) {
+    String s = "(0,0)(1,0)(2,0)(3,0)(4,0)";
     MineField m = new MineField();
     m.getMineField(s);
-  }
+  }*/
 }
