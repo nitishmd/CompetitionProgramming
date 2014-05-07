@@ -5,6 +5,7 @@
 
 import java.util.*;
 import java.util.Arrays.*;
+import static java.lang.Math.round;
 
 public class Bonuses {
 
@@ -20,8 +21,7 @@ public class Bonuses {
     }
 
     for(int i = 0; i < points.length; i++) {
-      percent[i] = (int) ((points[i] * 100) / sum);
-      System.out.println("Percent: "+percentUnused);
+      percent[i] = (int) round((points[i] * 100.0) / sum);
       percentUnused = percentUnused - percent[i];
     }
 
@@ -36,12 +36,12 @@ public class Bonuses {
     return percent;
   }
 
-  /*public static void main(String[] args) {
-    int[] test = {1,2,3,4,5};
+  public static void main(String[] args) {
+    int[] test = {5,5,5,5,5,5};
     Bonuses b = new Bonuses();
     int[] result = b.getDivision(test);
     for(int i = 0; i < result.length; i++) {
       System.out.println(result[i]);
     }
-  }*/
+  }
 }
